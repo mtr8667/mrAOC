@@ -17,20 +17,30 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    int bouy = 2;
-    bool isSurf = true;
-    int waves = 2;
-    int wind = 6;
+    float bouy = 3.1;
+    bool isSurf = YES;
+    int wind = 10;
     float waterTemp = 71.8f;
-    float surfEncuentro = bouy * 1.3f;
-    float surfCabarete = bouy * 1.1f;
-    float surfSeahourse = 1.15f;
+    float mEncuentro = bouy * 1.3f;
+    float mCabarete = bouy * 1.1f;
+    float mSeahourse = 1.15f;
+    
+    float encuentroH = bouy * mEncuentro ;
+    int convertEncuentroH = (int)encuentroH;
+    int waves = (mEncuentro + mCabarete + mSeahourse)/3 * bouy;
+    NSLog(@"waves =%d", waves);
+    NSLog(@"water temp =%.2f", waterTemp);
+    
+    NSLog(@"Encuentro height float = %.2f, Encuentro height int = %d", encuentroH, convertEncuentroH);
     
     if ((bouy >= 3)||(wind <= 8)){
-        isSurf = true;
+        isSurf = YES;
+        NSLog(@"Is there surf today=%d", isSurf);
+    } else {
+        NSLog(@"There is no surf today");
     }
     
-    if ((wind <= 9)&&(waves >= 4)) {
+    if ((wind <= 15)&&(waves >= 7)) {
         NSLog(@"Encuentro is the spot to surf today!");
     } else if ((wind <= 15)&&(waves >= 3)){
         NSLog(@"Cabarete should have something to surf!");
