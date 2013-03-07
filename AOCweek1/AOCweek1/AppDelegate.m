@@ -17,8 +17,18 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    int bouy = 2;
+    bool isSurf = true;
     int waves = 2;
     int wind = 6;
+    float waterTemp = 71.8f;
+    float surfEncuentro = bouy * 1.3f;
+    float surfCabarete = bouy * 1.1f;
+    float surfSeahourse = 1.15f;
+    
+    if ((bouy >= 3)||(wind <= 8)){
+        isSurf = true;
+    }
     
     if ((wind <= 9)&&(waves >= 4)) {
         NSLog(@"Encuentro is the spot to surf today!");
