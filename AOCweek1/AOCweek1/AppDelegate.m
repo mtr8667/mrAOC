@@ -17,29 +17,49 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    float bouy = 3.1;
-    bool isSurf = YES;
-    int wind = 10;
+    // BOOL object 
+    BOOL isSurf = YES;
+    
+    // float variables 
+    float bouy = 2.1f;
     float waterTemp = 71.8f;
     float mEncuentro = bouy * 1.3f;
     float mCabarete = bouy * 1.1f;
     float mSeahourse = 1.15f;
-    
     float encuentroH = bouy * mEncuentro ;
+    
+    // int variables - I realize that I'm not casting any of the floats to int(s) in the waves var - this is intentional the var is only supposed to make a rough calculation
+    int wind = 10;
     int convertEncuentroH = (int)encuentroH;
     int waves = (mEncuentro + mCabarete + mSeahourse)/3 * bouy;
+    int dEncuentro = 7;
+    int dSeahourse = 18;
+    int dCabarete = 13;
+    
+    
+    // print out of the vaiables waves, waterTemp, encuentroH & convertEncuentroH the ladder two variables show the required example of casting 
     NSLog(@"waves =%d", waves);
     NSLog(@"water temp =%.2f", waterTemp);
-    
     NSLog(@"Encuentro height float = %.2f, Encuentro height int = %d", encuentroH, convertEncuentroH);
+    NSLog(@"Distance to Encuentro =%d", dEncuentro);
+    NSLog(@"Distance to Cabarete =%d", dCabarete);
+    NSLog(@"Distance to Seahourse Ranch =%d", dSeahourse);
     
+    //NSString * string = @"Bobby, Patrick, Matty, Spongey";
+    //NSArray * array = [string componentsSeparatedByString:@""];
+    //int count = [array count];
+    //int toManyInCar = 3 ;
+    
+    // my and or comparison using float, int and a BOOL with YES and NO values
     if ((bouy >= 3)||(wind <= 8)){
         isSurf = YES;
         NSLog(@"Is there surf today=%d", isSurf);
     } else {
-        NSLog(@"There is no surf today");
+        isSurf = NO;
+        NSLog(@"Is there surf today=%d", isSurf);
     }
     
+    // my if else if else check 
     if ((wind <= 15)&&(waves >= 7)) {
         NSLog(@"Encuentro is the spot to surf today!");
     } else if ((wind <= 15)&&(waves >= 3)){
@@ -48,7 +68,20 @@
         NSLog(@"Looks like we're cleaning pools all day!");
     }
 
+    //single loop printing values to the console
+    for (int n=0; n < dCabarete; n++) {
+        NSLog(@"Minutes heading to the surf =%d", n );
+    }
     
+    /* I had a swing and a miss here and now have to rethink things
+    for (int i=0; i < count; i++) {
+        if (count < toManyInCar) {
+            NSLog(@"%i: %s\n", i, [[array objectAtIndex:i]UTF8String]);
+        }else{
+            NSLog(@"Too many to fit in the car we need to walk!");
+        }
+    }
+    */
     return YES;
 }
 
