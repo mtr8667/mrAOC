@@ -17,7 +17,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    // BOOL object 
+
+    
+    // BOOL object
     BOOL isSurf = YES;
     
     // float variables 
@@ -28,7 +30,7 @@
     float mSeahourse = 1.15f;
     float encuentroH = bouy * mEncuentro ;
     
-    // int variables - I realize that I'm not casting any of the floats to int(s) in the waves var - this is intentional the var is only supposed to make a rough calculation
+    // int variables - I realize that I'm not casting any of the floats to int(s) in the waves var - this is intentional the var is only supposed to make a rough calculation sort of like wetting your finger to see which way the wind is coming from.  There are other var(s) that get very precise for wave height
     int wind = 10;
     int convertEncuentroH = (int)encuentroH;
     int waves = (mEncuentro + mCabarete + mSeahourse)/3 * bouy;
@@ -45,22 +47,51 @@
     NSLog(@"Distance to Cabarete =%d", dCabarete);
     NSLog(@"Distance to Seahourse Ranch =%d", dSeahourse);
     
-    //NSString * string = @"Bobby, Patrick, Matty, Spongey";
-    //NSArray * array = [string componentsSeparatedByString:@""];
-    //int count = [array count];
-    //int toManyInCar = 3 ;
+    //data set up for nested loop in a loop - got some help from; Objective-C programming the big nerd ranch guide and Learning Cocoa with Objective-C
+    NSString * string = @"Bobby,Patrick,Matty,Spongey,Dropin,Cutuoff";
+    NSString * string1 = @"Encuentro,Seahorse,Cabarete";
+    NSString * string2 = @"2ft,2.7ft,3.2ft,5ft,7.2ft,9.8ft,EPIC";
+    //NSString * string3 = @"1.4ft,2.3ft,2.7ft,4.3ft,6.4ft,8ft,EPIC";   ------not used------
+    //NSString * string4 = @"1.1ft,1.9ft,2.4ft,4ft,5.8ft,6.5ft,6.8";    ------not used------
     
-    // my and or comparison using float, int and a BOOL with YES and NO values
-    if ((bouy >= 3)||(wind <= 8)){
+    
+    NSArray * array = [string componentsSeparatedByString:@","];
+    NSArray * array1 = [string1 componentsSeparatedByString:@","];
+    NSArray * array2 = [string2 componentsSeparatedByString:@","];
+    //NSArray * array3 = [string3 componentsSeparatedByString:@","];    ------not used------
+    //NSArray * array4 = [string4 componentsSeparatedByString:@","];    ------not used------
+    //NSObject * data = [array2,array3,array4];  Trying to fill my placeholders for historical data in the nested loop loop
+    //int count = [array1 count];                                       ------not used------
+    int count1 = [array2 count];
+    
+    int historicalData =  3;
+   
+    
+    // Trying to fill my placeholders for historical data in the nested loop loop
+    /*char arrrayWaveData[8][3] =                                       ------not used------
+    {
+        {@"Encuentro,Seahorse,Caberet"},
+        {@"2ft",},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+    };
+    */
+    
+    // my and or comparison using float, int and a BOOL with YES and NO values.  Simple, if the bouy is reading above or 3qual to 3ft or the wind is less than 10mph and the water temp is below 76 we're surfing! If those conditions are not met then usually its beat.  
+    if ((bouy >= 4)||((wind <= 15) && (waterTemp < 76))){
         isSurf = YES;
         NSLog(@"Is there surf today=%d", isSurf);
     } else {
         isSurf = NO;
-        NSLog(@"Is there surf today=%d", isSurf);
+        NSLog(@"Is there surf  today=%d", isSurf);
     }
     
-    // my if else if else check 
-    if ((wind <= 15)&&(waves >= 7)) {
+    // my if else if else check - We are initially checking the best surf break encuentro. For it to be good the wind have to be less than 10mph and the surf at least 7ft to break on the second reef. Then if Encuentro is beat we check to see if there are waves at Caberet which is a little more protected by the wind and have a nice shape even on pretty small waves. For there to be waves here the wind should be less than 15mph and the waves should be at least 3ft. If these two break are prodcuing waves then we have to work to make some cash! 
+    if ((wind <= 10)&&(waves >= 7)) {
         NSLog(@"Encuentro is the spot to surf today!");
     } else if ((wind <= 15)&&(waves >= 3)){
         NSLog(@"Cabarete should have something to surf!");
@@ -68,20 +99,31 @@
         NSLog(@"Looks like we're cleaning pools all day!");
     }
 
-    //single loop printing values to the console
+    //single loop printing values to the console. Here we're just printing out the minutes on our ride to Cabarete.
     for (int n=0; n < dCabarete; n++) {
         NSLog(@"Minutes heading to the surf =%d", n );
     }
     
-    /* I had a swing and a miss here and now have to rethink things
-    for (int i=0; i < count; i++) {
-        if (count < toManyInCar) {
-            NSLog(@"%i: %s\n", i, [[array objectAtIndex:i]UTF8String]);
-        }else{
-            NSLog(@"Too many to fit in the car we need to walk!");
+    // nested loop in loop pulling a weeks worth of historical wave height data from three surf breaks
+    for (int i=0; i < historicalData; i++) {
+            NSLog(@"Surf Break =%i: %s\n", i, [[array1 objectAtIndex:i]UTF8String]);
+        for (int j=0; j< count1; j++) {
+            NSLog(@"Placeholder for historical data =%d, Surf break =%d", j, i);
         }
     }
-    */
+    
+    //determining the surfers that will be traveling by car and displaying their names. We are looping through our array until the while condition is met.
+    int surfers = 0;
+    while (surfers < 3) {
+        
+        
+        NSLog(@"Surfer traveling by car =%i: %s\n", surfers,[[array objectAtIndex:surfers]UTF8String]);
+        
+        surfers++;
+    
+    }
+    
+ 
     return YES;
 }
 
