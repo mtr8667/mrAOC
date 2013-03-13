@@ -28,6 +28,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSString *items = @"Open-Sourcing, Outsourcing, Offshoring, Supply-Chaining, and Insourcing";
+    /*
     NSMutableString *items = [[NSMutableString alloc]initWithString:@"Open-Sourcing"];
     
     if (items != nil) {
@@ -37,6 +39,7 @@
         [items insertString:@", and Insourcing" atIndex:55];
         
     }
+    */
     NSLog(@"Item List =%@", items);
     
     label1 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
