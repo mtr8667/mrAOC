@@ -53,7 +53,7 @@
         
     }
     */
-    NSLog(@"Item List =%@", items);
+    //NSLog(@"Item List =%@", items);
     
     label1 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
     if (label1 != nil) {
