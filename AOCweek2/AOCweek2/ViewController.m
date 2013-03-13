@@ -30,12 +30,12 @@
 {
     NSString *items = @"Open-Sourcing, Outsourcing, Offshoring, Supply-Chaining, and Insourcing";
  //   NSLog(@"",items);
-    NSArray * itemsArray = [items componentsSeparatedByString:@","];
+    itemsArray = [items componentsSeparatedByString:@","];
     int count = [itemsArray count];
 
  
     for (int i=0; i<count; i++) {
-        NSMutableString * listItems = [[NSMutableString alloc]initWithFormat:@"%@",[itemsArray objectAtIndex:i]];
+        listItems = [[NSMutableString alloc]initWithFormat:@"%@",[itemsArray objectAtIndex:i]];
         
         NSLog(@"list Items =%@",listItems);
         
@@ -120,7 +120,7 @@
     label9 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 410.0f, 320.0f, 50.0f)];
     if (label9 != nil) {
         label9.backgroundColor =[UIColor colorWithRed:0.91 green:0.953 blue:0.839 alpha:1]; /*#e8f3d6*/
-        label9.text = @"placeholder";
+        label9.text = listItems;
         label9.textAlignment = NSTextAlignmentCenter;
         label9.numberOfLines = 2;
         label9.textColor =[UIColor colorWithRed:0.306 green:0.435 blue:0.11 alpha:1]; /*#4e6f1c*/
