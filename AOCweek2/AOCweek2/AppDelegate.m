@@ -27,16 +27,9 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    NSMutableString *items = [[NSMutableString alloc]initWithString:@"Open-Sourcing"];
     
-    if (items != nil) {
-        [items insertString:@",Outsourcing" atIndex:13];
-        [items insertString:@",Offshoring" atIndex:25];
-        [items insertString:@",Supply-Chaining" atIndex:36];
-        [items insertString:@",Insourcing" atIndex:52];
-        [items insertString:@",nil" atIndex:63];
-    }
-    NSLog(@"Item List =%@", items);
+    
+    
     
     return YES;
 }

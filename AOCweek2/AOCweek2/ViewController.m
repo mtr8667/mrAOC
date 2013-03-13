@@ -28,6 +28,17 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSMutableString *items = [[NSMutableString alloc]initWithString:@"Open-Sourcing"];
+    
+    if (items != nil) {
+        [items insertString:@", Outsourcing" atIndex:13];
+        [items insertString:@", Offshoring" atIndex:26];
+        [items insertString:@", Supply-Chaining" atIndex:38];
+        [items insertString:@", and Insourcing" atIndex:55];
+        
+    }
+    NSLog(@"Item List =%@", items);
+    
     label1 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
     if (label1 != nil) {
         label1.backgroundColor =[UIColor colorWithRed:0.212 green:0.212 blue:0.212 alpha:1]; /*#363636*/
@@ -77,7 +88,7 @@
     label7 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 110.0f, 320.0f, 270.0f)];
     if (label7 != nil) {
         label7.backgroundColor =[UIColor colorWithRed:0.98 green:1 blue:0.949 alpha:1]; /*#fafff2*/
-        label7.text =@"Friedman demystifies the new world for readers allowing them to make sense of the connected global scene unfolding before their eyes. With his inimitable ability to translate complex foreign policy and economic issues. An explaination is giving about how the flattening of the world happened at the dawn of the twenty-first century; what it means to countries, companies, communities, and individuals; and how govwrnments and societies can, and must, adapt.";
+        label7.text =@"Friedman demystifies the new world for readers allowing them to make sense of the connected global scene unfolding before their eyes. With his inimitable ability to translate complex foreign policy and economic issues. An explanation is giving about how the flattening of the world happened at the dawn of the twenty-first century; what it means to countries, companies, communities, and individuals; and how governments and societies can, and must, adapt.";
         label7.textAlignment = NSTextAlignmentCenter;
         label7.numberOfLines = 12;
         label7.textColor =[UIColor colorWithRed:0.153 green:0.247 blue:0.012 alpha:1]; /*#273f03*/
@@ -93,7 +104,7 @@
     label9 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 410.0f, 320.0f, 50.0f)];
     if (label9 != nil) {
         label9.backgroundColor =[UIColor colorWithRed:0.91 green:0.953 blue:0.839 alpha:1]; /*#e8f3d6*/
-        label9.text =@"this is my label text";
+        label9.text = items;
         label9.textAlignment = NSTextAlignmentCenter;
         label9.numberOfLines = 2;
         label9.textColor =[UIColor colorWithRed:0.306 green:0.435 blue:0.11 alpha:1]; /*#4e6f1c*/
