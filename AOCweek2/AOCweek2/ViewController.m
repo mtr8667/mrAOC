@@ -15,6 +15,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad
+// place news feeds that need to be initialized etc...
 {
     self.view.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0.961 alpha:1]; /*#fffff5*/
     [super viewDidLoad];
@@ -22,15 +23,16 @@
 }
 
 - (void)viewDidUnload
+//close any connection we need to close - clean up after yourself
 {
     [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated
+//set up UI before its presented to the user - select defaults etc...
 {
 //  Creation of individual NSStrings to populate the NSArray
 //  Creation and allocation of the NSMutableString
-    
 
     item1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
     item2 = [[NSString alloc]initWithString:@" Outsourcing"];
@@ -38,7 +40,7 @@
     item4 = [[NSString alloc]initWithString:@" Supply-Chaining"];
     item5 = [[NSString alloc]initWithString:@" Insourcing"];
   
- muteItems = [[NSMutableString alloc]init];
+    muteItems = [[NSMutableString alloc]init];
 
     
   //-------- working solution but using a parser for one long NSString -------------
@@ -48,21 +50,8 @@
     itemsArray = [items componentsSeparatedByString:@","];
 */
     
-  
 
-
-    NSArray * itemsArray = [NSArray arrayWithObjects:item1,item2,item3,item4,item5, nil];
-    
-//    [itemsArray arrayWithObjects:(item1),(item2),(item3),(item4),(item5), nil];
-    
-    
-
- 
-    
-
-
-    
-    
+   itemsArray = [NSArray arrayWithObjects:item1,item2,item3,item4,item5, nil];
     
 
 //  set up the int count to capture the length of the NSArray. With a break point here I initially figured out that my NSString was just one plain old string when not parsed.
@@ -70,7 +59,7 @@
     count = [itemsArray count];
 
 //  Print outs to the console to help me out
-    NSLog(@"%@", [itemsArray description]);
+    NSLog(@"%@",itemsArray);
     NSLog(@"count = %d", count);
     
 
@@ -181,7 +170,7 @@
         
         
     }
-    
+    //Adding subview to teh base UIview for all of our labels - they will be children of the parent base UIView
     [self.view addSubview:label1];
     [self.view addSubview:label2];
     [self.view addSubview:label3];
