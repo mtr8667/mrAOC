@@ -28,14 +28,49 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+//  Creation of individual NSStrings to populate the NSArray
+//  Creation and allocation of the NSMutableString    
+    item1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
+    item2 = [[NSString alloc]initWithString:@"Outsourcing"];
+    item3 = [[NSString alloc]initWithString:@"Offshoring"];
+    item4 = [[NSString alloc]initWithString:@"Supply-Chaining"];
+    item5 = [[NSString alloc]initWithString:@"Insourcing"];
     muteItems = [[NSMutableString alloc]init];
+    
+/*  -------- working solution but using a parser for one long NSString -------------
+    
     NSString *items = [[NSString alloc] initWithString:@"Open-Sourcing, Outsourcing, Offshoring, Supply-Chaining, Insourcing"];
- //   NSLog(@"",items);
-   itemsArray = [items componentsSeparatedByString:@","];
-  //  itemsArray = [[NSArray alloc] initWithObjects:(NSString * )items, nil];
+    
+    itemsArray = [items componentsSeparatedByString:@","];
+*/
+    
+  
+
+    
+    itemsArray = [[NSArray alloc] init];
+    
+    [itemsArray initWithObjects:(item1),(item2),(item3),(item4),(item5), nil];
+    
+    
+    NSLog(@"Contents =%@",itemsArray);
+ 
+    
+
+
+    
+    
+    
+
+//  set up the int count to capture the length of the NSArray. With a break point here I initially figured out that my NSString was just one plain old string when not parsed.
+    
     count = [itemsArray count];
+
+//  Print outs to the console to help me out
     NSLog(@"%@", [itemsArray description]);
     NSLog(@"count = %d", count);
+    
+
+//  For loop looping through the immutable NSArray pulling out the NSString objects placing them into a NSMutableString. There are a few conditions set up to format the list items label correctly with no comma at index 0, a comma indexes 1-3, and a comma and at index 4. Inside the for loop we are also initiating the NSMutableString that was allocated outside of the loop. So if I'm using the terminology correctly the NSMutableString is being populated and instantiated inside the loop.
     for (int i=0; i<count; i++) {
         if (i==4) {
             [muteItems appendFormat:@", and%@",[itemsArray objectAtIndex:i]];
@@ -48,18 +83,15 @@
         }
     }
     
+//  Print out of the NSMutableString
     NSLog(@"list Items =%@",muteItems);
+    
+/*  ---------------------------------------------------------------------------------
+ 
+ below was the first thing I got working but come to find out I was just passing in 1 string when I wasn't using the parser to separate the string! Talk about a false positive both the SIM and the console log showed what I wanted but it wasn't correct. When I did use the parser I got the same string 5 times but also got what I wanted in the SIM but the console log started to reveal the problem. Your feed back made me realize that I was creating an object in the loop. Both parts, allocating and initiating! Through a review of my notes and some of the videos and more importantly learning how to listen/understand Xcode through the popup help and console log better I knew where the code was breaking. I re-read the assignment and tried to do everything a word/sentence at a time. So once I set up the mutableString I allocated it!! Then through some trial and error and looking at my notes I got the syntax correct in the loop only initiating the mutable String. Still wasn't out of the woods until the break I put in and a pop-up help tell me that the initWithString wasn't the correct. I had already been in the (jump to definition) section a lot(!) and knew I had to append so I swapped out the initWithString for the appendFormat and success! A quick for if, else if, else later and finally everything was working.
 
     
     
-    
-    
-    
-    
-//  everything a word/sentence at a time. So once I set up the mutableString I allocated it!! Then through some trial and error and looking at my notes I got the syntax correct in the loop only initiating the mutable String. Still wasn't out of the woods until the break I put in and a pop-up help tell me that the initWithString wasn't the correct. I had already been in the (jump to definition) section a lot(!) and knew I had to append so I swapped out the initWithString for the appendFormat and success! A quick for if, else if, else later and finally everything was working.  
-
-    
-    /*
     for (int i=0; i<count; i++) {
        
         listItems = [[NSMutableString alloc]initWithFormat:@"%@",[itemsArray objectAtIndex:i]];

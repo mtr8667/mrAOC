@@ -5,7 +5,12 @@
 //  Created by Matthew T. Richter on 3/6/13.
 //  Copyright (c) 2013 Matthew T. Richter. All rights reserved.
 //
-
+NSString * f = @"foo";
+NSString * b = @"bar";
+NSString * z = @"baz";
+NSArray  * myArray2 = [NSArray arrayWithObjects:f,b,z,nil];
+NSInteger idx = [myArray2 indexOfObject:b];
+// This would return 1 (since NSArrays are 0 - indexed)
 #import "AppDelegate.h"
 
 @implementation AppDelegate
