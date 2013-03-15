@@ -31,32 +31,32 @@
 //  Creation of individual NSStrings to populate the NSArray
 //  Creation and allocation of the NSMutableString
     
-/*
+
     item1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
-    item2 = [[NSString alloc]initWithString:@"Outsourcing"];
-    item3 = [[NSString alloc]initWithString:@"Offshoring"];
-    item4 = [[NSString alloc]initWithString:@"Supply-Chaining"];
-    item5 = [[NSString alloc]initWithString:@"Insourcing"];
- */  
+    item2 = [[NSString alloc]initWithString:@" Outsourcing"];
+    item3 = [[NSString alloc]initWithString:@" Offshoring"];
+    item4 = [[NSString alloc]initWithString:@" Supply-Chaining"];
+    item5 = [[NSString alloc]initWithString:@" Insourcing"];
+  
  muteItems = [[NSMutableString alloc]init];
 
     
   //-------- working solution but using a parser for one long NSString -------------
-    
+/*
     NSString *items = [[NSString alloc] initWithString:@"Open-Sourcing, Outsourcing, Offshoring, Supply-Chaining, Insourcing"];
     
     itemsArray = [items componentsSeparatedByString:@","];
-
+*/
     
   
 
-  /*
-    itemsArray = [[NSArray alloc] init];
+
+    NSArray * itemsArray = [NSArray arrayWithObjects:item1,item2,item3,item4,item5, nil];
     
-    [itemsArray initWithObjects:(item1),(item2),(item3),(item4),(item5), nil];
+//    [itemsArray arrayWithObjects:(item1),(item2),(item3),(item4),(item5), nil];
     
-*/    
-    NSLog(@"Contents =%@",itemsArray);
+    
+
  
     
 
