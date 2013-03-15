@@ -28,33 +28,50 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *items = @"Open-Sourcing, Outsourcing, Offshoring, Supply-Chaining, and Insourcing";
+    muteItems = [[NSMutableString alloc]init];
+    NSString *items = [[NSString alloc] initWithString:@"Open-Sourcing, Outsourcing, Offshoring, Supply-Chaining, Insourcing"];
  //   NSLog(@"",items);
-    itemsArray = [items componentsSeparatedByString:@","];
-    int count = [itemsArray count];
-
- 
+   itemsArray = [items componentsSeparatedByString:@","];
+  //  itemsArray = [[NSArray alloc] initWithObjects:(NSString * )items, nil];
+    count = [itemsArray count];
+    NSLog(@"%@", [itemsArray description]);
+    NSLog(@"count = %d", count);
     for (int i=0; i<count; i++) {
+        if (i==4) {
+            [muteItems appendFormat:@", and%@",[itemsArray objectAtIndex:i]];
+        }
+        else if (i==0){
+            [muteItems appendFormat:@"%@",[itemsArray objectAtIndex:i]];
+        }
+        else {
+            [muteItems appendFormat:@",%@",[itemsArray objectAtIndex:i]];
+        }
+    }
+    
+    NSLog(@"list Items =%@",muteItems);
+
+    
+    
+    
+    
+    
+    
+//  everything a word/sentence at a time. So once I set up the mutableString I allocated it!! Then through some trial and error and looking at my notes I got the syntax correct in the loop only initiating the mutable String. Still wasn't out of the woods until the break I put in and a pop-up help tell me that the initWithString wasn't the correct. I had already been in the (jump to definition) section a lot(!) and knew I had to append so I swapped out the initWithString for the appendFormat and success! A quick for if, else if, else later and finally everything was working.  
+
+    
+    /*
+    for (int i=0; i<count; i++) {
+       
         listItems = [[NSMutableString alloc]initWithFormat:@"%@",[itemsArray objectAtIndex:i]];
     
         
         NSLog(@"list Items =%@",listItems);
-        
+      
     }
 
-    
-    /*
-    NSMutableString *items = [[NSMutableString alloc]initWithString:@"Open-Sourcing"];
-    
-    if (items != nil) {
-        [items insertString:@", Outsourcing" atIndex:13];
-        [items insertString:@", Offshoring" atIndex:26];
-        [items insertString:@", Supply-Chaining" atIndex:38];
-        [items insertString:@", and Insourcing" atIndex:55];
-        
-    }
-    */
-    //NSLog(@"Item List =%@", items);
+   NSLog(@"list Items =%@",listItems); 
+*/    
+
     
     label1 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
     if (label1 != nil) {
@@ -94,7 +111,7 @@
         label5.textAlignment = NSTextAlignmentLeft;
         label5.textColor =[UIColor colorWithRed:0.671 green:0.843 blue:0.412 alpha:1]; /*#abd769*/
     }
-    label6 = [[UILabel alloc] initWithFrame:CGRectMake(200.0f, 90.0f, 120.0f, 20.0f)];
+    label6 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 90.0f, 320.0f, 20.0f)];
     if (label6 != nil) {
         label6.backgroundColor =[UIColor colorWithRed:1 green:0.984 blue:0.82 alpha:1]; /*#fffbd1*/
         
@@ -110,7 +127,7 @@
         label7.numberOfLines = 12;
         label7.textColor =[UIColor colorWithRed:0.153 green:0.247 blue:0.012 alpha:1]; /*#273f03*/
     }
-    label8 = [[UILabel alloc] initWithFrame:CGRectMake(200.0f, 390.0f, 120.0f, 20.0f)];
+    label8 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 390.0f, 320.0f, 20.0f)];
     if (label8 != nil) {
         label8.backgroundColor =[UIColor colorWithRed:1 green:0.992 blue:0.925 alpha:1]; /*#fffdec*/
         label8.text =@"List of items:";
@@ -121,7 +138,7 @@
     label9 = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 410.0f, 320.0f, 50.0f)];
     if (label9 != nil) {
         label9.backgroundColor =[UIColor colorWithRed:0.91 green:0.953 blue:0.839 alpha:1]; /*#e8f3d6*/
-        label9.text = listItems;
+        label9.text = muteItems;
         label9.textAlignment = NSTextAlignmentCenter;
         label9.numberOfLines = 2;
         label9.textColor =[UIColor colorWithRed:0.306 green:0.435 blue:0.11 alpha:1]; /*#4e6f1c*/

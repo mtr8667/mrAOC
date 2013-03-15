@@ -21,5 +21,7 @@
     UILabel *label9;
     NSArray * itemsArray;
     NSMutableString * listItems;
+    NSMutableString * muteItems;
+    int count;
 }
 @end
