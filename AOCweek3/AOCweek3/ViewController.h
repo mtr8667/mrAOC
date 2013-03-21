@@ -10,14 +10,14 @@
 
 @interface ViewController : UIViewController
 {
-NSMutableString * muteItems;
+NSMutableString * appended;
     NSString * string1;
     NSString * string2;
 }
 
 - (int)addNum:(NSInteger)n1 num2:(NSInteger)n2;
 - (BOOL)compareNum:(NSInteger)isEqualn1 compareNum2:(NSInteger)isEqualn2;;
-
+- (NSMutableString *)appendString:(NSString *)str1 str2:(NSString *)str2;
 
 
 

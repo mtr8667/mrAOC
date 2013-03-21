@@ -28,18 +28,18 @@
         return NO;
     }
 }
-- (NSString)stringAppend:(NSString *)str1 str2:(NSString 8)str2;
-    
-
+- (NSMutableString *)appendString:(NSString *)str1 str2:(NSString *)str2
 {
-
+    
+    if (str1 != nil || str2 != nil) {
+       [appended stringByAppendingString:str2];
+    }
+    return appended;
 }
-
-
 
 - (void)viewDidLoad
 {
-    muteItems = [[NSMutableString alloc]init];
+    appended = [[NSMutableString alloc]init];
     string1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
     string2 = [[NSString alloc]initWithString:@"Outsourcing"];
 
