@@ -21,7 +21,7 @@
     {
         for (int i=0; i<10; i++)
         {
-            NSNumber *number = [[NSNumber alloc] initWithInt:i];
+            NSNumber *number = [[NSNumber alloc] initWithFloat:(1.5f + (float)i)];
             if (number != nil)
             {
                 [mutableArray addObject:number];
@@ -33,8 +33,8 @@
         NSNumber *number = [mutableArray objectAtIndex:i];
         if (number != nil)
         {
-            int temp = [number integerValue];
-            NSLog(@"temp = %d", temp);
+            float temp = [number floatValue];
+            NSLog(@"temp = %f", temp);
         }
     }
     [super viewDidLoad];
