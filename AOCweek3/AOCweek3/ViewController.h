@@ -10,14 +10,19 @@
 
 @interface ViewController : UIViewController
 {
-NSMutableString * appended;
+    NSMutableString * appended;
     NSString * string1;
     NSString * string2;
+    NSInteger numberToAdd1;
+    NSInteger numberToAdd2;
+    NSInteger numberToCompare1;
+    NSInteger numberToCompare2;
 }
 
-- (int)addNum:(NSInteger)n1 num2:(NSInteger)n2;
-- (BOOL)compareNum:(NSInteger)isEqualn1 compareNum2:(NSInteger)isEqualn2;;
-- (NSMutableString *)appendString:(NSString *)str1 str2:(NSString *)str2;
+
++ (int)add:(NSInteger)n1 add2:(NSInteger)n2;
+- (BOOL)compare:(NSInteger)isEqualn1 compare2:(NSInteger)isEqualn2;;
+- (NSMutableString *)append:(NSString *)str1 append2:(NSString *)str2;
 
 
 

@@ -14,12 +14,11 @@
 
 @implementation ViewController
 
-
-- (int)addNum:(NSInteger)n1 num2:(NSInteger)n2
++ (int)add:(NSInteger)n1 add2:(NSInteger)n2
 {
     return (n1 + n2);
 }
-- (BOOL)compareNum:(NSInteger)isEqualn1 compareNum2:(NSInteger)isEqualn2
+- (BOOL)compare:(NSInteger)isEqualn1 compare2:(NSInteger)isEqualn2
 {
     if (isEqualn1 == isEqualn2){
         return YES;
@@ -28,11 +27,13 @@
         return NO;
     }
 }
-- (NSMutableString *)appendString:(NSString *)str1 str2:(NSString *)str2
+- (NSMutableString *)append:(NSString *)str1 append2:(NSString *)str2
 {
     
-    if (str1 != nil || str2 != nil) {
-       [appended stringByAppendingString:str2];
+    if (str1 > 0 || str2 > 0) {
+        [appended appendFormat:@"%@",str1];
+        [appended appendFormat:@", %@",str2];
+     
     }
     return appended;
 }
@@ -40,10 +41,17 @@
 - (void)viewDidLoad
 {
     appended = [[NSMutableString alloc]init];
-    string1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
-    string2 = [[NSString alloc]initWithString:@"Outsourcing"];
 
-        
+    string1 = [[NSString alloc]initWithString:@"Warning!"];
+    string2 = [[NSString alloc]initWithString:@"you are currently not connected to the internet!"];
+    numberToAdd1 = 4;
+    numberToAdd2 = 6;
+    numberToCompare1 = 45;
+    numberToCompare1 = 38;
+    
+    NSMutableString * appendedValue = [self append:string1 append2:string2];
+    
+    NSLog(@"Appended String = %@",appendedValue);
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
