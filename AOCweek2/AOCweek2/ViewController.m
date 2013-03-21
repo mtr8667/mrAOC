@@ -35,10 +35,10 @@
 //  Creation and allocation of the NSMutableString
 
     item1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
-    item2 = [[NSString alloc]initWithString:@" Outsourcing"];
-    item3 = [[NSString alloc]initWithString:@" Offshoring"];
-    item4 = [[NSString alloc]initWithString:@" Supply-Chaining"];
-    item5 = [[NSString alloc]initWithString:@" Insourcing"];
+    item2 = [[NSString alloc]initWithString:@"Outsourcing"];
+    item3 = [[NSString alloc]initWithString:@"Offshoring"];
+    item4 = [[NSString alloc]initWithString:@"Supply-Chaining"];
+    item5 = [[NSString alloc]initWithString:@"Insourcing"];
   
     muteItems = [[NSMutableString alloc]init];
 
@@ -72,7 +72,7 @@
             [muteItems appendFormat:@"%@",[itemsArray objectAtIndex:i]];
         }
         else {
-            [muteItems appendFormat:@",%@",[itemsArray objectAtIndex:i]];
+            [muteItems appendFormat:@", %@",[itemsArray objectAtIndex:i]];
         }
     }
     

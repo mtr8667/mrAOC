@@ -16,13 +16,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
+/*
     NSString * f = @"foo";
     NSString * b = @"bar";
     NSString * z = @"baz";
     NSArray  * myArray2 = [NSArray arrayWithObjects:f,b,z,nil];
     NSInteger idx = [myArray2 indexOfObject:b];
-
+*/
     
     // BOOL object
     BOOL isSurf = YES;
