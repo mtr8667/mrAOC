@@ -14,65 +14,40 @@
 
 @implementation ViewController
 
+
+- (int)addNum:(NSInteger)n1 num2:(NSInteger)n2
+{
+    return (n1 + n2);
+}
+- (BOOL)compareNum:(NSInteger)isEqualn1 compareNum2:(NSInteger)isEqualn2
+{
+    if (isEqualn1 == isEqualn2){
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+- (NSString)stringAppend:(NSString *)str1 str2:(NSString 8)str2;
+    
+
+{
+
+}
+
+
+
 - (void)viewDidLoad
 {
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] initWithCapacity:10];
-    if (mutableArray != nil)
-    {
-        for (int i=0; i<10; i++)
-        {
-            NSNumber *number = [[NSNumber alloc] initWithFloat:(1.5f + (float)i)];
-            if (number != nil)
-            {
-                [mutableArray addObject:number];
-            }
-        }
-    }
-    for (int i=0; i< [mutableArray count]; i++)
-    {
-        NSNumber *number = [mutableArray objectAtIndex:i];
-        if (number != nil)
-        {
-            float temp = [number floatValue];
-            NSLog(@"temp = %f", temp);
-        }
-    }
+    muteItems = [[NSMutableString alloc]init];
+    string1 = [[NSString alloc]initWithString:@"Open-Sourcing"];
+    string2 = [[NSString alloc]initWithString:@"Outsourcing"];
+
+        
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Loading" message:@"Please wait ..." delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    if (alertView != nil)
-    {
-        [alertView show];
-        
-        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        
-        if (alertView != nil)
-        {
-            indicator.center = CGPointMake((alertView.bounds.size.width/2.0f), (alertView.bounds.size.height/2.0f)+ 32.0f);
-            [indicator startAnimating];
-            [alertView addSubview:indicator];
-        }
-    }
-   for (int i=0; i<100000; i++)
-    {
-    }
-    [alertView dismissWithClickedButtonIndex:0 animated:TRUE];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"What's Up" message:@"The game is on!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    if (alertView != nil) {
-        [alertView show];
-        
-        
-    }
-}
 
 - (void)didReceiveMemoryWarning
 {

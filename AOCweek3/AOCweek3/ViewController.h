@@ -9,5 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+NSMutableString * muteItems;
+    NSString * string1;
+    NSString * string2;
+}
+
+- (int)addNum:(NSInteger)n1 num2:(NSInteger)n2;
+- (BOOL)compareNum:(NSInteger)isEqualn1 compareNum2:(NSInteger)isEqualn2;;
+
+
+
+
 
 @end
