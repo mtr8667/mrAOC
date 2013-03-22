@@ -25,7 +25,7 @@
 - (int)add:(NSInteger)n1 add2:(NSInteger)n2;
 - (BOOL)compare:(NSInteger)isEqualn1 compare2:(NSInteger)isEqualn2;;
 - (NSMutableString *)append:(NSString *)str1 append2:(NSString *)str2;
-- (void)displayAlertWithString:(NSString *)alertString;
+- (void)displayAlertWithString:(NSString *)alertString title:(NSString *)title;
 
 
 

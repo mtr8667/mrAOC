@@ -22,15 +22,15 @@
     appended = [[NSMutableString alloc]init];
 //  numberToString = [[NSNumber alloc]init];
 //  intToNumber = [[NSNumber alloc]init];
-    string1 = [[NSString alloc]initWithString:@"Warning!"];
-    string2 = [[NSString alloc]initWithString:@"You are currently not connected to the internet!"];
+    string1 = [[NSString alloc]initWithString:@"Frustrating!"];
+    string2 = [[NSString alloc]initWithString:@"But super fun!"];
     numberToAdd1 = 4;
     numberToAdd2 = 32;
     numberToCompare1 = 38;
     numberToCompare2 = 43;
     
     NSMutableString * appendedValue =   [self append:string1 append2:string2];
-                                        [self displayAlertWithString:appendedValue];
+                                        [self displayAlertWithString:appendedValue title:@"I present you with appendedString"];
     
     NSLog(@"Appended String = %@",appendedValue);
     
@@ -43,19 +43,19 @@
     if (compareDisplay == YES)
     {
         NSString *compareResult = [NSString stringWithFormat:@"Value %d is equal to value %d", numberToCompare1, numberToCompare2];
-        [self displayAlertWithString:compareResult];
+        [self displayAlertWithString:compareResult title:@"They're equal!"];
     }else{
         NSString *compareResult = [NSString stringWithFormat:@"Value %d is not equal to value %d", numberToCompare1, numberToCompare2];
-        [self displayAlertWithString:compareResult];
+        [self displayAlertWithString:compareResult title:@"They're not equal!"];
     }
     // stringValue Returns the receiver’s value as a human-readable string.- (NSString *)stringValue
     //[intToNumber initWithInt:sum];
     //[numberToString stringValue];
     //[self displayAlertWithString:numberToString];
     NSNumber *sumToNumber = [[NSNumber alloc] initWithInt:sum];
-    NSString *numberToString = [sumToNumber description];
-    
-    [self displayAlertWithString:numberToString];
+    NSString *numberToString = [sumToNumber stringValue];
+    NSString *messageString = [NSString stringWithFormat:@"The number is %@",numberToString];
+    [self displayAlertWithString:messageString title:@"What a pain!"];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -82,9 +82,9 @@
     return appended;
 }
 
-- (void)displayAlertWithString:(NSString *)alertString
+- (void)displayAlertWithString:(NSString *)alertString title:(NSString *)title
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:alertString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     if (alertView != nil)
     {
         [alertView show];
