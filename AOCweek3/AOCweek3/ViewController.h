@@ -11,6 +11,8 @@
 @interface ViewController : UIViewController
 {
     NSMutableString * appended;
+//    NSNumber *numberToString;
+//    NSNumber *intToNumber;
     NSString * string1;
     NSString * string2;
     NSInteger numberToAdd1;
@@ -20,7 +22,7 @@
 }
 
 
-+ (int)add:(NSInteger)n1 add2:(NSInteger)n2;
+- (int)add:(NSInteger)n1 add2:(NSInteger)n2;
 - (BOOL)compare:(NSInteger)isEqualn1 compare2:(NSInteger)isEqualn2;;
 - (NSMutableString *)append:(NSString *)str1 append2:(NSString *)str2;
 - (void)displayAlertWithString:(NSString *)alertString;
