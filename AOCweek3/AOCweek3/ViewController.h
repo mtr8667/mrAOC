@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+// All of these variables and methods are accessable to the class/object viewController
+
 {
     NSMutableString * appended;
-//    NSNumber *numberToString;
-//    NSNumber *intToNumber;
     NSString * string1;
     NSString * string2;
     NSInteger numberToAdd1;
