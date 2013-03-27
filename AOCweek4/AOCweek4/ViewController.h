@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIAlertViewDelegate>
+{
+    UILabel *pleaseEnterUsernameLabel;
+    UITextField *textField;
+    NSString *userText;
+}
+
 
 @end
