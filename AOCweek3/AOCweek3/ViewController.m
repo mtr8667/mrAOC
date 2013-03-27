@@ -32,6 +32,7 @@
     }else{
         return NO;
     }
+
 }
 
 //-------------------- #3 create a function called append --------------------------
@@ -69,6 +70,8 @@
     numberToAdd2 = 32;
     numberToCompare1 = 38;
     numberToCompare2 = 38;
+
+
     
 //-----------------------#4 Here we are calling the displayAlertWithString function and displaying the appended NSStrings  
     
@@ -98,7 +101,7 @@
 // stringValue Returns the receiver’s value as a human-readable string.- (NSString *)stringValue --- description works as well
 // below we are using the auto release pool for memory and this is where the int went to NSNumber then to NSString
     
-//---------------------# 7 & 8 below bundle the int into NSNumber then convert to NSString and pass to displayAlertWithString & change title and message 
+//---------------------# 7 & 8 below bundle the int returned from the add function into NSNumber then convert to NSString and pass to displayAlertWithString & change title and message 
     
     NSNumber *sumToNumber = [[NSNumber alloc] initWithInt:sum];
     NSString *numberToString = [sumToNumber description];
