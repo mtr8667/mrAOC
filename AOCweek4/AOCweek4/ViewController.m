@@ -7,12 +7,43 @@
 //
 
 #import "ViewController.h"
+#define BUTTON_ZERO 0
+#define BUTTON_ONE 1
+#define BUTTON_TWO 2
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+
+- (void)displayAlertWithDateString:(NSString *)dateString
+{
+    
+    date = [NSDate date];
+    dateFormatter  = [[NSDateFormatter alloc] init];
+    if (dateFormatter != nil) {
+        [dateFormatter setDateFormat:@"MMMM dd, yyyy hh:mm:ss a zzzz"];
+        //[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        // [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+        message = [dateFormatter stringFromDate:date];
+        
+        NSLog(@"Date = %@", message);
+    }
+    
+    
+    
+    
+    
+    alertDateView = [[UIAlertView alloc] initWithTitle:@"Date" message:dateString delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    if (alertDateView != nil)
+    {
+        [alertDateView show];
+    }
+    
+}
+
 
 - (void)viewDidLoad
 {
@@ -24,7 +55,7 @@
         [self.view addSubview:textField];
     }
     
-    UILabel *textFieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 10.0f, 100.0f, 30.0f)];
+    textFieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 10.0f, 100.0f, 30.0f)];
     if (textFieldLabel != nil) {
         textFieldLabel.text = @"Username:";
         textFieldLabel.backgroundColor = [UIColor lightGrayColor];
@@ -33,12 +64,34 @@
         [self.view addSubview:textFieldLabel];
     }
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    if (button != nil) {
-        button.frame = CGRectMake (210.0f,50.0f,100.0f,30.0f);
-        [button setTitle:@"Login" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
+    UIButton *button0 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    if (button0 != nil) {
+        button0.frame = CGRectMake (210.0f,50.0f,100.0f,30.0f);
+        [button0 setTitle:@"Login" forState:UIControlStateNormal];
+        
+        button0.tag = BUTTON_ZERO;
+        [button0 addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button0];
+    }
+    
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    if (button1 != nil) {
+        button1.frame = CGRectMake (10.0f,200.0f,100.0f,30.0f);
+        [button1 setTitle:@"Show Date" forState:UIControlStateNormal];
+        
+        button1.tag = BUTTON_ONE;
+        [button1 addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button1];
+    }
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    if (button2 != nil) {
+        button2.frame = CGRectMake (10.0f,300.0f,25,25);
+        [button2 setTitle:@"Show Date" forState:UIControlStateNormal];
+        
+        button2.tag = BUTTON_TWO;
+        [button2 addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button1];
     }
 
     pleaseEnterUsernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 60.0f)];
@@ -51,17 +104,26 @@
         [self.view addSubview:pleaseEnterUsernameLabel];
 
     }
+    
+    
+
+    [self displayAlertWithDateString:message];
+
 
 
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)onClick
+- (void)onClick:(UIButton*)button
 {
-    userText = [textField text];
+    if (button.tag == BUTTON_ONE) {
+        [self displayAlertWithDateString:message];
+    }
     
-    NSLog(@"Username: %@", userText);
+//    userText = [textField text];
+    
+//    NSLog(@"Username: %@", userText);
 }
 
 - (void)didReceiveMemoryWarning

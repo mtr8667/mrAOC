@@ -13,7 +13,18 @@
     UILabel *pleaseEnterUsernameLabel;
     UITextField *textField;
     NSString *userText;
-}
+    UILabel *textFieldLabel;
+    NSDate *date;
+    NSDateFormatter *dateFormatter;
+    UIAlertView *alertDateView;
+    NSString *message;
+  
 
+    
+    NSString *dateHolder;
+
+}
+- (void)onClick:(UIButton*)button;
+- (void)displayAlertWithDateString:(NSString *)dateString ;
 
 @end
