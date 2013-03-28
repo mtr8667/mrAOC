@@ -28,8 +28,6 @@
         //[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         // [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         message = [dateFormatter stringFromDate:date];
-        
-        NSLog(@"Date = %@", message);
     }
     
     alertDateView = [[UIAlertView alloc] initWithTitle:@"Date" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -46,19 +44,21 @@
     userText = [textField text];
     if (userText.length == 0) {
         NSString *usernameNeeded = [[NSString alloc] initWithString:@"Username cannot be empty"];
-        pleaseEnterUsernameLabel.text = usernameNeeded  ;
+        pleaseEnterUsernameLabel.text = usernameNeeded;
+        pleaseEnterUsernameLabel.textColor = [UIColor colorWithRed:1 green:0.4 blue:0.4 alpha:1]; /*#ff6666*/
+
     }else {
         NSString *usernameGood  = [NSString stringWithFormat:@"User: %@ has been logged in",userText];
-    pleaseEnterUsernameLabel.text = usernameGood;
+        pleaseEnterUsernameLabel.text = usernameGood;
     }
-       
-    NSLog(@"Username: %@", userText);
+    return;
 
 }
 
 - (void)displayProgrammer
 {
-
+    programmerLabel.text = @"This application was created by: Matthew Richter";
+   
 
 }
 
@@ -77,10 +77,30 @@
     if (textFieldLabel != nil) {
         textFieldLabel.text = @"Username:";
         textFieldLabel.backgroundColor = [UIColor lightGrayColor];
-        textFieldLabel.textColor = [UIColor blackColor];
+        //textFieldLabel.textColor = [UIColor blackColor];
         
         [self.view addSubview:textFieldLabel];
     }
+    
+    pleaseEnterUsernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 60.0f)];
+    if (pleaseEnterUsernameLabel != nil) {
+        pleaseEnterUsernameLabel.backgroundColor =[UIColor colorWithRed:0.212 green:0.212 blue:0.212 alpha:1];
+        pleaseEnterUsernameLabel.text = @"Please Enter Username";
+        pleaseEnterUsernameLabel.textAlignment = NSTextAlignmentCenter;
+        pleaseEnterUsernameLabel.textColor = [UIColor whiteColor];
+        [self.view addSubview:pleaseEnterUsernameLabel];
+    }
+    
+    programmerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 430.0f, 320.0f, 30.0f)];
+    if (programmerLabel != nil) {
+        
+        programmerLabel.font = [UIFont systemFontOfSize:14.0f];
+        programmerLabel.textAlignment = NSTextAlignmentCenter;
+        programmerLabel.backgroundColor = [UIColor lightGrayColor];
+        
+       // [self.view addSubview:programmerLabel];
+    }
+
     
     UIButton *button0 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (button0 != nil) {
@@ -104,7 +124,7 @@
     
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeInfoLight];
     if (button2 != nil) {
-        button2.frame = CGRectMake (10.0f,300.0f,25,25);
+        button2.frame = CGRectMake (10.0f,370.0f,25,25);
         [button2 setTitle:@"Show Date" forState:UIControlStateNormal];
         
         button2.tag = BUTTON_TWO;
@@ -112,21 +132,13 @@
         [self.view addSubview:button2];
     }
 
-    pleaseEnterUsernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 60.0f)];
-    if (pleaseEnterUsernameLabel != nil) {
-        pleaseEnterUsernameLabel.backgroundColor =[UIColor colorWithRed:0.212 green:0.212 blue:0.212 alpha:1];        
-        pleaseEnterUsernameLabel.text = @"Please Enter Username";
-        pleaseEnterUsernameLabel.textAlignment = NSTextAlignmentCenter;
-        pleaseEnterUsernameLabel.textColor = [UIColor whiteColor];
-        [self.view addSubview:pleaseEnterUsernameLabel];
-
-    }
+    
     
     
 
    
 
-
+    [self.view addSubview:programmerLabel];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

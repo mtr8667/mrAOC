@@ -18,11 +18,12 @@
     NSDateFormatter *dateFormatter;
     UIAlertView *alertDateView;
     NSString *message;
+    UILabel *programmerLabel;
+    
   
 
     
-    NSString *dateHolder;
-
+   
 }
 - (void)onClick:(UIButton*)button;
 - (void)displayAlertWithDateString;
