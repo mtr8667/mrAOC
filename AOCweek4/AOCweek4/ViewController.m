@@ -45,21 +45,19 @@
     if (userText.length == 0) {
         NSString *usernameNeeded = [[NSString alloc] initWithString:@"Username cannot be empty"];
         pleaseEnterUsernameLabel.text = usernameNeeded;
-        pleaseEnterUsernameLabel.textColor = [UIColor colorWithRed:1 green:0.4 blue:0.4 alpha:1]; /*#ff6666*/
-
+        pleaseEnterUsernameLabel.textColor = [UIColor colorWithRed:1 green:0.2 blue:0.2 alpha:1]; /*#ff3333*/
     }else {
         NSString *usernameGood  = [NSString stringWithFormat:@"User: %@ has been logged in",userText];
         pleaseEnterUsernameLabel.text = usernameGood;
+        pleaseEnterUsernameLabel.font = [UIFont systemFontOfSize:14.0f];
     }
-    return;
+    [self dismissKeyboard];
 
 }
 
 - (void)displayProgrammer
 {
     programmerLabel.text = @"This application was created by: Matthew Richter";
-   
-
 }
 
 
@@ -98,7 +96,7 @@
         programmerLabel.textAlignment = NSTextAlignmentCenter;
         programmerLabel.backgroundColor = [UIColor lightGrayColor];
         
-       // [self.view addSubview:programmerLabel];
+       [self.view addSubview:programmerLabel];
     }
 
     
@@ -129,16 +127,10 @@
         
         button2.tag = BUTTON_TWO;
         [button2 addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+//        [button2 addTarget:self action:@selector(dismissKeyboard)];
         [self.view addSubview:button2];
     }
 
-    
-    
-    
-
-   
-
-    [self.view addSubview:programmerLabel];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -161,6 +153,11 @@
 //    userText = [textField text];
     
 //    NSLog(@"Username: %@", userText);
+}
+
+-(void)dismissKeyboard
+{
+    [textField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

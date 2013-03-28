@@ -29,5 +29,6 @@
 - (void)displayAlertWithDateString;
 - (void)checkLogin;
 - (void)displayProgrammer;
+- (void)dismissKeyboard;
 
 @end
