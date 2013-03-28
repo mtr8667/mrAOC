@@ -42,8 +42,17 @@
 
 - (void)checkLogin
 {
-
-
+    
+    userText = [textField text];
+    if (userText.length == 0) {
+        NSString *usernameNeeded = [[NSString alloc] initWithString:@"Username cannot be empty"];
+        pleaseEnterUsernameLabel.text = usernameNeeded  ;
+    }else {
+        NSString *usernameGood  = [NSString stringWithFormat:@"User: %@ has been logged in",userText];
+    pleaseEnterUsernameLabel.text = usernameGood;
+    }
+       
+    NSLog(@"Username: %@", userText);
 
 }
 
@@ -105,8 +114,7 @@
 
     pleaseEnterUsernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 60.0f)];
     if (pleaseEnterUsernameLabel != nil) {
-        pleaseEnterUsernameLabel.backgroundColor =[UIColor colorWithRed:0.212 green:0.212 blue:0.212 alpha:1]; /*#363636*/
-        
+        pleaseEnterUsernameLabel.backgroundColor =[UIColor colorWithRed:0.212 green:0.212 blue:0.212 alpha:1];        
         pleaseEnterUsernameLabel.text = @"Please Enter Username";
         pleaseEnterUsernameLabel.textAlignment = NSTextAlignmentCenter;
         pleaseEnterUsernameLabel.textColor = [UIColor whiteColor];
