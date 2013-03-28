@@ -32,16 +32,25 @@
         NSLog(@"Date = %@", message);
     }
     
-    
-    
-    
-    
-    alertDateView = [[UIAlertView alloc] initWithTitle:@"Date" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    alertDateView = [[UIAlertView alloc] initWithTitle:@"Date" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     if (alertDateView != nil)
     {
         [alertDateView show];
     }
     
+}
+
+- (void)checkLogin
+{
+
+
+
+}
+
+- (void)displayProgrammer
+{
+
+
 }
 
 
@@ -91,7 +100,7 @@
         
         button2.tag = BUTTON_TWO;
         [button2 addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button1];
+        [self.view addSubview:button2];
     }
 
     pleaseEnterUsernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 60.0f)];
@@ -119,6 +128,15 @@
     if (button.tag == BUTTON_ONE) {
         [self displayAlertWithDateString];
     }
+    
+    if (button.tag == BUTTON_ZERO) {
+        [self checkLogin];
+    }
+    
+    if (button.tag == BUTTON_TWO) {
+        [self displayProgrammer];
+    }
+    
     
 //    userText = [textField text];
     

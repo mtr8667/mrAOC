@@ -26,5 +26,7 @@
 }
 - (void)onClick:(UIButton*)button;
 - (void)displayAlertWithDateString;
+- (void)checkLogin;
+- (void)displayProgrammer;
 
 @end
