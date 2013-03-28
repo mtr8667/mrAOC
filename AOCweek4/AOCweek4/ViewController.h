@@ -25,6 +25,6 @@
 
 }
 - (void)onClick:(UIButton*)button;
-- (void)displayAlertWithDateString:(NSString *)dateString ;
+- (void)displayAlertWithDateString;
 
 @end

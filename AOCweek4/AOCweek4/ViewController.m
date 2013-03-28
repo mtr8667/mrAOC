@@ -18,7 +18,7 @@
 @implementation ViewController
 
 
-- (void)displayAlertWithDateString:(NSString *)dateString
+- (void)displayAlertWithDateString
 {
     
     date = [NSDate date];
@@ -36,7 +36,7 @@
     
     
     
-    alertDateView = [[UIAlertView alloc] initWithTitle:@"Date" message:dateString delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    alertDateView = [[UIAlertView alloc] initWithTitle:@"Date" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     if (alertDateView != nil)
     {
         [alertDateView show];
@@ -107,8 +107,7 @@
     
     
 
-    [self displayAlertWithDateString:message];
-
+   
 
 
     [super viewDidLoad];
@@ -118,7 +117,7 @@
 - (void)onClick:(UIButton*)button
 {
     if (button.tag == BUTTON_ONE) {
-        [self displayAlertWithDateString:message];
+        [self displayAlertWithDateString];
     }
     
 //    userText = [textField text];
