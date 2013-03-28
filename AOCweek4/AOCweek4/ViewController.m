@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Matthew T. Richter. All rights reserved.
 //
 
+// Defined button names to index numbers for better readability 
 #import "ViewController.h"
 #define BUTTON_ZERO 0
 #define BUTTON_ONE 1
@@ -17,7 +18,9 @@
 
 @implementation ViewController
 
+// defined all local variables and methods in the viewController.h file
 
+// this function displayAlertWithDateString uses NSDate and NSDateFormatter to grab the current date for us and customize how we display it. We then assign our result to an NSString message whihc is then passed into the alertView to be displayed
 - (void)displayAlertWithDateString
 {
     
@@ -38,6 +41,7 @@
     
 }
 
+// checkLogin function has two conditions - one if the user doesn't eneter a useer name then tell them they have to in a message window below and two if they have logged in successfully then tell them that as well in the message window below - we also call the dismissKeboard function after the last condition is met which pulls up the keyboard
 - (void)checkLogin
 {
     
@@ -55,12 +59,13 @@
 
 }
 
+// this function displays the programmers name in a label after clicking on the infobutton
 - (void)displayProgrammer
 {
     programmerLabel.text = @"This application was created by: Matthew Richter";
 }
 
-
+// initially in the viewDidLoad function we set a background color then created all the labels necessary for the program in some instances we reduced the font to keep the app clean looking and fit required text without running into anotehr line
 - (void)viewDidLoad
 {
     self.view.backgroundColor = [UIColor lightGrayColor];
@@ -75,7 +80,6 @@
     if (textFieldLabel != nil) {
         textFieldLabel.text = @"Username:";
         textFieldLabel.backgroundColor = [UIColor lightGrayColor];
-        //textFieldLabel.textColor = [UIColor blackColor];
         
         [self.view addSubview:textFieldLabel];
     }
@@ -99,7 +103,7 @@
        [self.view addSubview:programmerLabel];
     }
 
-    
+// All buttons are created and positioned below - we've targeted and selected the onClick method and button tags have been set to allow us to use only one onClick function - we are also adding the subViews to the viewController object here as well.
     UIButton *button0 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (button0 != nil) {
         button0.frame = CGRectMake (210.0f,50.0f,100.0f,30.0f);
@@ -135,6 +139,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+// this is our onClick function targeted and selected by our UIButtons - they all call seperate function related to what was required in the assignment
 - (void)onClick:(UIButton*)button
 {
     if (button.tag == BUTTON_ONE) {
@@ -148,12 +153,10 @@
     if (button.tag == BUTTON_TWO) {
         [self displayProgrammer];
     }
-    
-    
-//    userText = [textField text];
-    
-//    NSLog(@"Username: %@", userText);
+
 }
+
+// this is the finction that is allowing us to get rid of the keyboard after we enter text into the textField. thanks stack overflow http://stackoverflow.com/questions/5306240/iphone-dismiss-keyboard-when-touching-outside-of-textfield
 
 -(void)dismissKeyboard
 {
